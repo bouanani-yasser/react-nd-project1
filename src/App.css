@@ -1,0 +1,112 @@
+.app {
+   overflow: hidden;
+}
+
+/*Home page*/
+
+.main-header {
+   padding: 20px;
+   display: flex;
+   justify-content: center;
+   background-color: #3f9764;
+   color: #fffeee;
+   font-size: 3rem;
+}
+
+.shelf-books {
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   flex-wrap: wrap;
+}
+
+.book {
+   padding: 10px;
+   margin: 30px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: flex-start;
+   width: 170px;
+}
+
+.book .book-face {
+   position: relative;
+   width: 100%;
+   height: 170px;
+   border-radius: 5px;
+   box-shadow: 0 10px 10px rgb(0 0 0 / 50%);
+   overflow: hidden;
+}
+
+.book .book-face img {
+   max-width: 100%;
+   width: 100%;
+   height: 100%;
+}
+
+.book .book-face .control-btn {
+   all: unset;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   cursor: pointer;
+   background-color: #fff;
+   position: absolute;
+   bottom: 3%;
+   right: 3%;
+}
+
+.book .book-title {
+   position: relative;
+   margin-top: 15px;
+   width: 95%;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.book .author {
+   color: #aaa;
+}
+
+.add-btn svg {
+   padding: 0;
+   box-shadow: 0 10px 10px rgb(0 0 0 / 30%);
+   cursor: pointer;
+   border-radius: 50%;
+   position: fixed;
+   bottom: 5%;
+   right: 5%;
+}
+
+.error-box {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+/*Search Page*/
+
+.search-page header {
+   width: 100%;
+   padding: 20px 10px;
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-start;
+   /* box-shadow: 1px 2px 2px 2px #222; */
+}
+
+.search-page header input {
+   all: unset;
+   width: 95%;
+}
+
+.all-books {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
