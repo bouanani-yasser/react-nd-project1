@@ -1,13 +1,15 @@
 import React from 'react';
-import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import BookController from './BookController';
+
 function Book({ book }) {
    return (
       <div className="book">
          <div className="book-face">
-            <img src={book.imageLinks.thumbnail} alt={book.title} />
-            <button className="control-btn">
-               <IoMdArrowDropdownCircle size={40} color="#3f9764" />
-            </button>
+            <img
+               src={book.imageLinks && book.imageLinks.thumbnail}
+               alt={book.title}
+            />
+            <BookController currentShelf={book.shelf} />
          </div>
          <p className="book-title">{book.title}</p>
          {/* <p className="author">{book.authors[0]}</p> */}

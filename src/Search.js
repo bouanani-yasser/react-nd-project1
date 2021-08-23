@@ -24,7 +24,7 @@ class Search extends Component {
                <input
                   onChange={(e) => this.onSearchHandler(e)}
                   type="text"
-                  placeHolder="Search by title or author"
+                  placeholder="Search by title or author"
                />
             </header>
             <hr />

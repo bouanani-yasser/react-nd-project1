@@ -5,7 +5,7 @@ function AllBooks({ books }) {
       <div className="all-books">
          {books &&
             books.length > 0 &&
-            books.map((book) => <Book book={book} />)}
+            books.map((book) => <Book key={book.id} book={book} />)}
       </div>
    );
 }
