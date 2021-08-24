@@ -6,7 +6,7 @@ import Book from './Book';
 function Shelf({ shelfBooks, books, onUpdateShelves }) {
    return (
       <div className="shelf-books">
-         {books.length > 0 ? (
+         {shelfBooks.length > 0 ? (
             books.map(
                (book) =>
                   shelfBooks.find((bookId) => book.id === bookId) && (
