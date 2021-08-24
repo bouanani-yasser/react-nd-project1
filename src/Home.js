@@ -45,11 +45,11 @@ function Home(props) {
 }
 
 Home.propTypes = {
-   currentlyReadingShelf: PropTypes.string.isRequired,
-   wantToReadShelf: PropTypes.string.isRequired,
-   readShelf: PropTypes.string.isRequired,
+   currentlyReadingShelf: PropTypes.array.isRequired,
+   wantToReadShelf: PropTypes.array.isRequired,
+   readShelf: PropTypes.array.isRequired,
    books: PropTypes.array.isRequired,
-   error: PropTypes.string.isRequired,
+   error: PropTypes.string,
    onUpdateShelves: PropTypes.func.isRequired,
 };
 

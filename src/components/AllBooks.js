@@ -20,7 +20,7 @@ function AllBooks({ books, onUpdateShelves }) {
 }
 
 AllBooks.propTypes = {
-   books: PropTypes.array.isRequired,
+   books: PropTypes.any,
    onUpdateShelves: PropTypes.func.isRequired,
 };
 
