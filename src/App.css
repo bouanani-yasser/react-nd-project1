@@ -127,6 +127,11 @@ main {
    color: #aaa;
 }
 
+.book .author::before {
+   color: #aaa;
+   content: '- ';
+}
+
 .add-btn svg {
    padding: 0;
    box-shadow: 0 10px 10px rgb(0 0 0 / 30%);
@@ -164,6 +169,6 @@ main {
 .all-books {
    display: flex;
    justify-content: center;
-   align-items: center;
+   align-items: flex-start;
    flex-wrap: wrap;
 }

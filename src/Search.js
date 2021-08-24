@@ -5,13 +5,30 @@ import AllBooks from './components/AllBooks';
 import { search } from './BooksAPI';
 
 class Search extends Component {
-   state = { books: [] };
+   state = { searchResult: [] };
 
    onSearchHandler = (e) => {
       const { value } = e.target;
-      search(value).then((data) => {
-         this.setState({ books: data });
-      });
+      value.trim()
+         ? search(value).then((data) => {
+              this.addShelfPropToSearchResults(data);
+              this.setState({ searchResult: data });
+           })
+         : this.setState({ searchResult: [] });
+   };
+
+   addShelfPropToSearchResults = (data) => {
+      data &&
+         data.length > 0 &&
+         data.forEach((searchBook) => {
+            const foundBook = this.props.books.find(
+               (book) => book.id === searchBook.id
+            );
+
+            foundBook
+               ? (searchBook.shelf = foundBook.shelf)
+               : (searchBook.shelf = 'none');
+         });
    };
 
    render() {
@@ -28,7 +45,10 @@ class Search extends Component {
                />
             </header>
             <hr />
-            <AllBooks books={this.state.books} />
+            <AllBooks
+               books={this.state.searchResult}
+               onUpdateShelves={this.props.onUpdateShelves}
+            />
          </main>
       );
    }

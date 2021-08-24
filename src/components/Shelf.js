@@ -1,12 +1,23 @@
 import React from 'react';
 import Book from './Book';
 
-function Shelf({ books }) {
+function Shelf({ shelfBooks, books, onUpdateShelves }) {
    return (
       <div className="shelf-books">
-         {books.map((book) => (
-            <Book key={book.id} book={book} />
-         ))}
+         {books.length > 0 ? (
+            books.map(
+               (book) =>
+                  shelfBooks.find((bookId) => book.id === bookId) && (
+                     <Book
+                        key={book.id}
+                        book={book}
+                        onUpdateShelves={onUpdateShelves}
+                     />
+                  )
+            )
+         ) : (
+            <h2>No books on this Shelf</h2>
+         )}
       </div>
    );
 }

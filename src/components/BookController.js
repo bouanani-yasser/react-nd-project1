@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { update } from '../BooksAPI';
 
 class BookController extends Component {
    constructor(props) {
       super(props);
+      this.state.currentShelf = props.currentShelf;
       this.optionNode = React.createRef();
    }
 
@@ -27,8 +29,15 @@ class BookController extends Component {
       this.setState({ showOptions: false });
    };
 
+   changeBookShelf = (shelf) => {
+      update(this.props.book, shelf).then((shelves) => {
+         this.props.onUpdateShelves({ ...this.props.book, shelf }, shelves);
+      });
+      this.setState({ showOptions: false, currentShelf: shelf });
+   };
+
    render() {
-      const { currentShelf } = this.props;
+      const { currentShelf } = this.state;
       return (
          <div className="book-controller">
             <button
@@ -46,15 +55,26 @@ class BookController extends Component {
                      className={`${
                         currentShelf === 'currentlyReading' && 'current'
                      }`}
+                     onClick={() => {
+                        this.changeBookShelf('currentlyReading');
+                     }}
                   >
                      Currently Reading
                   </li>
                   <li
                      className={`${currentShelf === 'wantToRead' && 'current'}`}
+                     onClick={() => {
+                        this.changeBookShelf('wantToRead');
+                     }}
                   >
                      Want to Read
                   </li>
-                  <li className={`${currentShelf === 'read' && 'current'}`}>
+                  <li
+                     className={`${currentShelf === 'read' && 'current'}`}
+                     onClick={() => {
+                        this.changeBookShelf('read');
+                     }}
+                  >
                      Read
                   </li>
                   <li
@@ -64,6 +84,9 @@ class BookController extends Component {
                         currentShelf !== 'currentlyReading' &&
                         'current'
                      }`}
+                     onClick={() => {
+                        this.changeBookShelf('none');
+                     }}
                   >
                      None
                   </li>
