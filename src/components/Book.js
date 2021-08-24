@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import BookController from './BookController';
 
 function Book({ book, onUpdateShelves }) {
    return (
       <>
-         {book && book.imageLinks ? (
+         {book && book.imageLinks && (
             <div className="book">
                <div className="book-face">
                   <img src={book.imageLinks.thumbnail} alt={book.title} />
@@ -23,11 +25,14 @@ function Book({ book, onUpdateShelves }) {
                      </p>
                   ))}
             </div>
-         ) : (
-            <></>
          )}
       </>
    );
 }
+
+Book.propTypes = {
+   book: PropTypes.object.isRequired,
+   onUpdateShelves: PropTypes.func.isRequired,
+};
 
 export default Book;

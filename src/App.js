@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import * as books from './BooksAPI';
 import { Route } from 'react-router-dom';
+import './App.css';
+
+import * as books from './BooksAPI';
 import Home from './Home';
 import Search from './Search';
 import Spinner from './components/spinner';

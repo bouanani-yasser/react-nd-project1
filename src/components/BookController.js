@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
+
 import { update } from '../BooksAPI';
 
 class BookController extends Component {
@@ -96,5 +98,11 @@ class BookController extends Component {
       );
    }
 }
+
+BookController.propTypes = {
+   currentShelf: PropTypes.string,
+   book: PropTypes.object.isRequired,
+   onUpdateShelves: PropTypes.func.isRequired,
+};
 
 export default BookController;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ImArrowLeft2 } from 'react-icons/im';
+
 import AllBooks from './components/AllBooks';
 import { search } from './BooksAPI';
 
@@ -54,4 +56,8 @@ class Search extends Component {
    }
 }
 
+Search.propTypes = {
+   books: PropTypes.array.isRequired,
+   onUpdateShelves: PropTypes.func.isRequired,
+};
 export default Search;

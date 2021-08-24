@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Shelf from './Shelf';
 
 function Shelves({ shelves, books, onUpdateShelves }) {
@@ -18,5 +20,11 @@ function Shelves({ shelves, books, onUpdateShelves }) {
       </div>
    );
 }
+
+Shelves.propTypes = {
+   books: PropTypes.array.isRequired,
+   shelves: PropTypes.object.isRequired,
+   onUpdateShelves: PropTypes.func.isRequired,
+};
 
 export default Shelves;

@@ -1,8 +1,10 @@
 import React from 'react';
-import Shelves from './components/Shelves';
-import { RiAddCircleFill } from 'react-icons/ri';
-import Header from './components/Header';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { RiAddCircleFill } from 'react-icons/ri';
+
+import Shelves from './components/Shelves';
+import Header from './components/Header';
 
 function Home(props) {
    const {
@@ -41,5 +43,14 @@ function Home(props) {
       </main>
    );
 }
+
+Home.propTypes = {
+   currentlyReadingShelf: PropTypes.string.isRequired,
+   wantToReadShelf: PropTypes.string.isRequired,
+   readShelf: PropTypes.string.isRequired,
+   books: PropTypes.array.isRequired,
+   error: PropTypes.string.isRequired,
+   onUpdateShelves: PropTypes.func.isRequired,
+};
 
 export default Home;
